@@ -3,7 +3,6 @@ import os
 from web3 import Web3
 
 # Blockchain Configuration
-web3 = Web3(Web3.HTTPProvider(INFURA_URL))
 # INFURA_URL = "https://sepolia.infura.io/v3/de3a5bd9bb4e4044aa516db5facf2dcc"
 
 # PRIVATE_KEY = "42de94928c34120381ea51a905d7af4df84e46189735b203032ba1c7bd58f059"
@@ -15,6 +14,7 @@ PRIVATE_KEY = os.getenv("PRIVATE_KEY")
 INFURA_URL = os.getenv("INFURA_URL")
 ACCOUNT_ADDRESS = os.getenv("ACCOUNT_ADDRESS")
 CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS")
+web3 = Web3(Web3.HTTPProvider(INFURA_URL))
 
 
 CONTRACT_ABI = [
