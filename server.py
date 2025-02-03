@@ -136,7 +136,7 @@ def send_to_blockchain(round_num, metrics):
     "gas": gas_estimate,  # Use estimated gas
     "gasPrice": web3.to_wei("5", "gwei"),
     "nonce": nonce,
-})
+    })
 
 
     signed_tx = web3.eth.account.sign_transaction(tx, PRIVATE_KEY)
