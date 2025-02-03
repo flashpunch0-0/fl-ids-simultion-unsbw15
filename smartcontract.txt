@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract FederatedLearningMetrics {
+
+    struct RoundMetrics {
+        uint256 accuracy;
+        uint256 loss;
+    }
+
+    // Mapping to store aggregated global metrics for each round
+    mapping(uint256 => RoundMetrics) public globalMetrics;
+
+    event MetricsUpdated(uint256 indexed round, uint256 accuracy, uint256 loss);
+
+    // Function to store aggregated metrics for a round
+    function storeMetrics(uint256 round, uint256 accuracy, uint256 loss) public {
+        globalMetrics[round] = RoundMetrics(accuracy, loss);
+        emit MetricsUpdated(round, accuracy, loss);
+    }
+
+    // Function to retrieve metrics for a given round
+    function getMetrics(uint256 round) public view returns (uint256, uint256) {
+        RoundMetrics memory metrics = globalMetrics[round];
+        return (metrics.accuracy, metrics.loss);
+    }
+}
